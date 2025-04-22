@@ -1,15 +1,22 @@
-import axios from "../../axios"
+
+// import axios from "../../axios";
+import { useProps } from "./useProps";
+import { Layout } from "./Layout";
 
 
-export const Row = ({fetchUrl}:{fetchUrl: string})=>{
-    async function fetchData(){
-        const request = await axios.get(fetchUrl);
-    }
 
-    fetchData();
+// index.tsx：コンポーネントのエントリポイントを定義している。他の2つのファイルをインポートして、統合した形でエクスポートする役割
 
-    return <div className="Row" />
+type Pros = {
+    title:string;
+    fetchUrl:string;
+    isLargeRow?:boolean;
+};
 
-}
 
+export const Row =({title,fetchUrl,isLargeRow}:Pros) =>{
+    return(
+        <Layout title={title} isLargeRow = {isLargeRow} {...useProps(fetchUrl)}/>
+    )
+};
 
