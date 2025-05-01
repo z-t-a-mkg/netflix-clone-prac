@@ -2,9 +2,10 @@
 const tailwindcss = require('@tailwindcss/postcss');
 const autoprefixer = require('autoprefixer');
 
+// postcss.config.cjs
 module.exports = {
-  plugins: [
-    tailwindcss(),     // ← 関数呼び出し形式！
-    autoprefixer       // ← こっちも関数じゃなくてOK
-  ]
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
 };
